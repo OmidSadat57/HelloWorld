@@ -13,18 +13,13 @@ public class WunschStadtRestController {
     @Autowired
     private WunschStadtService wunschStadtService;
 
-//    public WunschStadtRestController(WunschStadtService wunschStadtService) {
-//        this.wunschStadtService = wunschStadtService;
-//    }
-
-//    @GetMapping("/createCity")
-//    public String createCity(Model model) {
-//        model.addAttribute("city", new WunschStadtEntity());
-//        return "citycreation";
-//    }
+    @RequestMapping("/")
+    public List<WunschStadtEntity> showAllCities() {
+        return wunschStadtService.findAllCities();
+    }
 
     @RequestMapping("/getCities")
-    public List<WunschStadtEntity> allCities() {
+    public List<WunschStadtEntity> getAllCities() {
         return wunschStadtService.findAllCities();
     }
 
