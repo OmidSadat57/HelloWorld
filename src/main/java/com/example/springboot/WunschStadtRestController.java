@@ -29,8 +29,12 @@ public class WunschStadtRestController {
     }
 
     @GetMapping("/cities/count")
-    public Long count() {
-        return wunschStadtService.count();
+    public String count() {
+
+        long anzahlDatensetze = wunschStadtService.count();
+        String anzahlDatensetzeString = String.valueOf(anzahlDatensetze);
+        String nachrichtImBrowser = "Anzhl der verfügbaren Datensätze in der Datenbank: [ " + anzahlDatensetzeString + " ]";
+        return nachrichtImBrowser;
     }
 
 //    @RequestMapping(path = "/cities")
