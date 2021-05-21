@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Traumstadt-Form</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h2>Wunschstadt speichern</h2>
+<form action="#" th:action="@{/createcity}" th:object="${wunschStadtEntity}" method="post">
+    <p>Stadtname: <input type="text" th:field="*{stadtName}" /></p>
+    <p>Urlaubswunsch: <input type="text" th:field="*{urlaubsWunsch}" /></p>
+    <p><input type="submit" value="bestätigen" /></p> <input type="reset" value="zurücksetzen" /></p>
+</form>
+</body>
+</html>

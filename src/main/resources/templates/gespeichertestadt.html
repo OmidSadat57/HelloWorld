@@ -1,0 +1,14 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Wunschstadt</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+</head>
+<body>
+<h2>Sie haben Ihre Traumstadt gespeichert</h2>
+<p th:text="'Stadt: ' + ${wunschStadtEntity.stadtName}"></p>
+<p th:text="'Urlaubswunsch: ' + ${wunschStadtEntity.urlaubsWunsch}"></p>
+<a href="/getCities">Siehe alle gespeicherten Städte</a>
+</body>
+</html>

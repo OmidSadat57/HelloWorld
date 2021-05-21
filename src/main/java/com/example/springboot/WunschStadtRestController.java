@@ -1,41 +1,34 @@
 package com.example.springboot;
 
-import com.example.springboot.persistence.WunschStadtEntity;
-import com.example.springboot.service.WunschStadtService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
-
-@RestController
+//@RestController
 public class WunschStadtRestController {
 
-    @Autowired
-    private WunschStadtService wunschStadtService;
-
-    @RequestMapping("/")
-    public List<WunschStadtEntity> showAllCities() {
-        return wunschStadtService.findAllCities();
-    }
-
-    @RequestMapping("/getCities")
-    public List<WunschStadtEntity> getAllCities() {
-        return wunschStadtService.findAllCities();
-    }
-
-    @PostMapping("/createCity")
-    public WunschStadtEntity createCity(@RequestBody WunschStadtEntity wunschStadt) {
-        return wunschStadtService.save(wunschStadt);
-    }
-
-    @GetMapping("/cities/count")
-    public String count() {
-
-        long anzahlDatensetze = wunschStadtService.count();
-        String anzahlDatensetzeString = String.valueOf(anzahlDatensetze);
-        String nachrichtImBrowser = "Anzhl der verfügbaren Datensätze in der Datenbank: [ " + anzahlDatensetzeString + " ]";
-        return nachrichtImBrowser;
-    }
+//    @Autowired
+//    private WunschStadtService wunschStadtService;
+//
+//    @RequestMapping("/")
+//    public List<WunschStadtEntity> showAllCities() {
+//        return wunschStadtService.findAllCities();
+//    }
+//
+//    @RequestMapping("/getCities")
+//    public List<WunschStadtEntity> getAllCities() {
+//        return wunschStadtService.findAllCities();
+//    }
+//
+//    @PostMapping("/createCity")
+//    public WunschStadtEntity createCity(@RequestBody WunschStadtEntity wunschStadt) {
+//        return wunschStadtService.save(wunschStadt);
+//    }
+//
+//    @GetMapping("/cities/count")
+//    public String count() {
+//
+//        long anzahlDatensetze = wunschStadtService.count();
+//        String anzahlDatensetzeString = String.valueOf(anzahlDatensetze);
+//        String nachrichtImBrowser = "Anzhl der verfügbaren Datensätze in der Datenbank: [ " + anzahlDatensetzeString + " ]";
+//        return nachrichtImBrowser;
+//    }
 
 //    @RequestMapping(path = "/cities")
    /* @GetMapping("/cities")
