@@ -1,0 +1,63 @@
+/* === Farben === */
+/*
+    body-background-color: white;
+*/
+
+/* === Global === */
+
+html {
+    font-size: 16px;
+}
+
+body {
+    background-color: white;
+}
+
+* {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+#table {
+    background-color: lightgray;
+    margin: 4rem;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+}
+p {
+    margin: 2rem;
+}
+#logo {
+    margin-top: 2rem;
+    margin-left: 4rem;
+    margin-bottom: .1rem;
+    /*position: fixed;*/
+    /*top: 0;*/
+    /*width: 100%;*/
+}
+/* === Generelles === */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+/*.navbar {*/
+/*    margin-top: 2rem;*/
+/*}*/
+
+.navbar {
+    background-color: #ffcc00;
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+}
+
+.navbar-header {
+    padding-left: 4rem;
+}
+.navbar-brand {
+    font-weight: bolder;
+    /*background-color: orange;*/
+}
+
+/*. wichtiger-text {*/
+/*    font-weight: bold;*/
+/*}*/
