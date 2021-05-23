@@ -14,10 +14,9 @@
 </head>
 <body>
     <div id="logo">
-        <img src="../img/logo1.png" alt="Das Logo, Sonne und 3D Kunstwerk">
+        <img src="../img/logo1.png" alt="Das Logo, Sonne und 3D Kunstwerk mit dem Wort Wetter">
     </div>
     <nav class="navbar navbar-light">
-
         <div class="container-fluid">
             <div class="navbar-header">
                 <a class="navbar-brand" href="/getCities">WetterEasyGemacht</a>
@@ -43,6 +42,7 @@
 <!--<h2 th:case="null">No cities yet!</h2>-->
 <h1>Deine Traumstädte!</h1>
 <table id="table">
+    <caption>Deine Traumstädte</caption>
     <thead>
     <tr>
         <th>Stadtname</th>
@@ -50,13 +50,13 @@
     </tr>
     </thead>
     <tbody>
-    <tr th:if="${wunschStadtEntities.isEmpty()}">
-        <td colspan="2">No cities Available</td>
-    </tr>
-    <tr th:each="wunschStadtEntity : ${wunschStadtEntities}">
-        <td><span th:text="${wunschStadtEntity.stadtName}">Stadtname </span></td>
-        <td><span th:text="${wunschStadtEntity.urlaubsWunsch}">Urlaubswunsch </span></td>
-    </tr>
+        <tr th:if="${wunschStadtEntities.isEmpty()}">
+            <td colspan="2">No cities Available</td>
+        </tr>
+        <tr th:each="wunschStadtEntity : ${wunschStadtEntities}">
+            <td><span th:text="${wunschStadtEntity.stadtName}">Stadtname </span></td>
+            <td><span th:text="${wunschStadtEntity.urlaubsWunsch}">Urlaubswunsch </span></td>
+        </tr>
     </tbody>
 </table>
     <a href="/createCityForm">Neue Wunschstadt hinzufügen</a><br>

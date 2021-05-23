@@ -23,29 +23,41 @@ body {
     margin: 4rem;
     font-family: 'Helvetica', 'Arial', sans-serif;
 }
+
 p {
     margin: 2rem;
 }
+
 #logo {
     margin-top: 2rem;
     margin-left: 4rem;
     margin-bottom: .1rem;
-    /*position: fixed;*/
-    /*top: 0;*/
-    /*width: 100%;*/
 }
+
+@keyframes logoAnimation {
+    0% { transform: rotateY(0deg) }
+    5% { transform: rotateY(10deg) }
+    10% { transform: rotateY(20deg) }
+    15% { transform: rotateY(30deg) }
+    20% { transform: rotateY(40deg) }
+    25% { transform: rotateY(50deg) }
+}
+
+#logo > img {
+    animation: logoAnimation 5s ease-in-out infinite alternate;
+}
+
 /* === Generelles === */
+
 nav {
     position: fixed;
     top: 0;
     width: 100%;
 }
-/*.navbar {*/
-/*    margin-top: 2rem;*/
-/*}*/
 
 .navbar {
-    background-color: #ffcc00;
+    font-weight: bold;
+    background-color: #ffd426;
     position: -webkit-sticky; /* Safari */
     position: sticky;
 }
@@ -53,11 +65,12 @@ nav {
 .navbar-header {
     padding-left: 4rem;
 }
+
 .navbar-brand {
-    font-weight: bolder;
-    /*background-color: orange;*/
+    font-size: 1.5rem;
 }
 
-/*. wichtiger-text {*/
-/*    font-weight: bold;*/
-/*}*/
+.navbar-brand:hover {
+    background-color: #ffe373;
+}
+
