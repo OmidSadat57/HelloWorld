@@ -18,10 +18,11 @@ body {
     box-sizing: border-box;
 }
 
-#table {
-    background-color: lightgray;
-    margin: 4rem;
-    font-family: 'Helvetica', 'Arial', sans-serif;
+h1 {
+    text-align: center;
+    font-weight: bolder;
+    font-size: 2rem;
+    font-style: italic;
 }
 
 p {
@@ -49,17 +50,17 @@ p {
 
 /* === Generelles === */
 
-nav {
-    position: fixed;
-    top: 0;
-    width: 100%;
-}
+/*nav {*/
+/*    !*position: fixed;*!*/
+/*    top: 0;*/
+/*    width: 100%;*/
+/*}*/
 
 .navbar {
     font-weight: bold;
     background-color: #ffd426;
-    position: -webkit-sticky; /* Safari */
-    position: sticky;
+    /*position: -webkit-sticky; !* Safari *!*/
+    /*position: sticky;*/
 }
 
 .navbar-header {
