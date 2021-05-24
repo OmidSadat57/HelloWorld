@@ -20,8 +20,9 @@
             <a class="navbar-brand" href="/getCities">WetterEasyGemacht</a>
         </div>
         <ul class="nav navbar-nav">
-            <li class="active"><a href="/getCities">Startseite</a></li>
-            <li><a href="#">Meine Wunschstädte</a></li>
+            <li class="active"><a href="#">Startseite</a></li>
+            <li><a href="/getCities">Meine Wunschstädte</a></li>
+            <li><a href="/createCityForm">Wunschstadt hinzufügen</a></li>
             <form class="navbar-form navbar-left" action="/action_page.php">
                 <div class="form-group">
                     <input type="text" class="form-control" placeholder="Enter your favorite city" name="search">
@@ -37,11 +38,36 @@
         </ul>
     </div>
 </nav>
-<h2>Wunschstadt speichern</h2>
-<form action="#" th:action="@{/createcity}" th:object="${wunschStadtEntity}" method="post">
-    <p>Stadtname: <input type="text" th:field="*{stadtName}" /></p>
-    <p>Urlaubswunsch: <input type="text" th:field="*{urlaubsWunsch}" /></p>
-    <p><input type="submit" value="bestätigen" /></p> <input type="reset" value="zurücksetzen" /></p>
-</form>
+
+<div class="stadtSpeichern">
+    <form action="#" th:action="@{/createcity}" th:object="${wunschStadtEntity}" method="post">
+        <h2 class="ueberschrift2">Geben Sie Ihre Wunschstadt ein: </h2>
+        <div class="row">
+            <div class="col-3">
+                <label for="stadt1">Stadtname: </label>
+            </div>
+            <div class="col-3">
+                <input id="stadt1" type="text" name="stadtname" th:field="*{stadtName}" placeholder="z.B. Berlin">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3">
+                <label for="urlaubswunsch1">Urlaubswunsch: </label>
+            </div>
+            <div class="col-3">
+                <input id="urlaubswunsch1" type="text" name="urlaubswunsch1" th:field="*{urlaubsWunsch}" placeholder="z.B. gerne">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <button id="absendeButton" class="btn-typ-3" type="submit" name="absendeButton">Bestätigen</button>
+            </div>
+            <div class="col-6">
+                <button id="resetButton" class="btn-typ-3" type="reset" name="resetButton">zurücksetzen</button>
+            </div>
+        </div>
+    </form>
+</div>
+
 </body>
 </html>

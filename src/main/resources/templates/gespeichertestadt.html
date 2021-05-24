@@ -2,8 +2,8 @@
 <html xmlns:th="https://www.thymeleaf.org">
 <head>
     <title>Wunschstadt</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="shortcut icon" href="../img/favicon.ico.png">
     <!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
@@ -20,8 +20,9 @@
             <a class="navbar-brand" href="/getCities">WetterEasyGemacht</a>
         </div>
         <ul class="nav navbar-nav">
-            <li class="active"><a href="/getCities">Startseite</a></li>
-            <li><a href="#">Meine Wunschstädte</a></li>
+            <li class="active"><a href="#">Startseite</a></li>
+            <li><a href="/getCities">Meine Wunschstädte</a></li>
+            <li><a href="/createCityForm">Wunschstadt hinzufügen</a></li>
             <form class="navbar-form navbar-left" action="/action_page.php">
                 <div class="form-group">
                     <input type="text" class="form-control" placeholder="Enter your favorite city" name="search">
@@ -37,9 +38,23 @@
         </ul>
     </div>
 </nav>
-<h2>Sie haben Ihre Traumstadt gespeichert</h2>
-<p th:text="'Stadt: ' + ${wunschStadtEntity.stadtName}"></p>
-<p th:text="'Urlaubswunsch: ' + ${wunschStadtEntity.urlaubsWunsch}"></p>
-<a href="/getCities">Siehe alle gespeicherten Städte</a>
+<!--    Ende Navi-->
+<div class="stadtgespeichert">
+    <h2 class="ueberschrift2">Du hast eine neue Stadt gespeichert</h2>
+    <div>
+        <p th:text="'Stadt: ' + ${wunschStadtEntity.stadtName}"></p>
+        <p th:text="'Urlaubswunsch: ' + ${wunschStadtEntity.urlaubsWunsch}"></p>
+    </div>
+    <div class="col-100">
+        <form action="/getCities">
+            <button type="submit" class="btn-typ-100">Siehe Wunschtädte</button>
+        </form>
+    </div>
+    <div class="col-100">
+        <form action="/createCityForm">
+            <button type="submit" class="btn-typ-100">Wunschstadt hinzufügen</button>
+        </form>
+    </div>
+</div>
 </body>
 </html>

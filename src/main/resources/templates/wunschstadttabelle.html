@@ -2,45 +2,46 @@
 <html xmlns:th="https://www.thymeleaf.org">
 <head>
     <title>Wunschstädte</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="shortcut icon" href="../img/favicon.ico.png">
-<!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
-<!--    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>-->
+    <!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
+    <!--    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>-->
     <link rel="stylesheet" type="text/css" href="../css/styles.css">
 </head>
 <body>
-    <div id="logo">
-        <img src="../img/logo1.png" alt="Das Logo, Sonne und 3D Kunstwerk mit dem Wort Wetter">
-    </div>
-    <nav class="navbar navbar-light">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="/getCities">WetterEasyGemacht</a>
-            </div>
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="/getCities">Startseite</a></li>
-                <li><a href="#">Meine Wunschstädte</a></li>
-                <form class="navbar-form navbar-left" action="/action_page.php">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Enter your favorite city" name="search">
-                    </div>
-                    <button type="submit" class="btn btn-default">
-                        <i class="glyphicon glyphicon-search"></i>
-                    </button>
-                </form>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-            </ul>
+<div id="logo">
+    <img src="../img/logo1.png" alt="Das Logo, Sonne und 3D Kunstwerk mit dem Wort Wetter">
+</div>
+<nav class="navbar navbar-light">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/getCities">WetterEasyGemacht</a>
         </div>
-    </nav>
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Startseite</a></li>
+            <li><a href="/getCities">Meine Wunschstädte</a></li>
+            <li><a href="/createCityForm">Wunschstadt hinzufügen</a></li>
+            <form class="navbar-form navbar-left" action="/action_page.php">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Enter your favorite city" name="search">
+                </div>
+                <button type="submit" class="btn btn-default">
+                    <i class="glyphicon glyphicon-search"></i>
+                </button>
+            </form>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        </ul>
+    </div>
+</nav>
 <!--<h2 th:case="null">No cities yet!</h2>-->
-<h1>Deine Traumstädte!</h1>
+<h1 class="ueberschrift">Deine Wunschstädte!</h1>
 <table class="table table-striped table-hover">
-    <caption>Deine Traumstädte</caption>
+    <caption>gespeicherte Städte</caption>
     <thead>
     <tr>
         <th scope="col">Stadtname</th>
@@ -48,45 +49,30 @@
     </tr>
     </thead>
     <tbody>
-        <tr th:if="${wunschStadtEntities.isEmpty()}">
-            <td colspan="2">No cities Available</td>
-        </tr>
-        <tr th:each="wunschStadtEntity : ${wunschStadtEntities}">
-            <td><span th:text="${wunschStadtEntity.stadtName}">Stadtname </span></td>
-            <td><span th:text="${wunschStadtEntity.urlaubsWunsch}">Urlaubswunsch </span></td>
-        </tr>
+    <tr th:if="${wunschStadtEntities.isEmpty()}">
+        <td colspan="2">No cities Available</td>
+    </tr>
+    <tr th:each="wunschStadtEntity : ${wunschStadtEntities}">
+        <td><span th:text="${wunschStadtEntity.stadtName}">Stadtname </span></td>
+        <td><span th:text="${wunschStadtEntity.urlaubsWunsch}">Urlaubswunsch </span></td>
+    </tr>
     </tbody>
 </table>
-    <a href="/createCityForm">Neue Wunschstadt hinzufügen</a><br>
-    <a href="/getCities">Alle Städte ansehen!</a>
-<p>
-    lorem
-    lorem
+<div id="untersterBereichWunschStaedte">
+    <div class="col-100">
+        <form action="/createCityForm">
+            <button class="btn-typ-100">Neue Wunschstadt hinzufügen</button>
+        </form>
+    </div>
+    <div class="col-100">
+        <form action="/getCities">
+            <button type="submit" class="btn-typ-100">Siehe alle gespeicherten Städte</button>
+        </form>
+    </div>
+</div>
+<!--<div id="test">-->
+<!--    <p>Test</p>-->
+<!--</div>-->
 
-    lorem <br>
-    lorem <br>
-    lorem <br>
-    lorem <br>
-    lorem <br>
-    lorem <br>
-    lorem <br>
-    lorem <br>
-    lorem <br>
-    lorem <br>
-    lorem <br>
-    lorem <br>
-    lorem <br>
-    lorem <br>
-    lorem <br>
-    lorem <br>
-    lorem <br>
-    lorem <br>
-    lorem <br>
-    lorem <br>
-    lorem <br>
-    lorem <br>
-    lorem <br>
-    lorem <br>
-</p>
 </body>
 </html>
