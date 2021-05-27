@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html th:replace="~{layout :: layout (~{::body})}" lang="en">
+<!--<html xmlns:th="https://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Ergebnis</title>-->
+<!--    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1"/>-->
+<!--    &lt;!&ndash;    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">&ndash;&gt;-->
+<!--</head>-->
+<body>
+
+<h1 class="ueberschrift"> Herzlich Willkommen zum Ergebnis der Wetterdtenabfrage!</h1>
+<div class="stadtgespeichert">
+    <h2 class="ueberschrift2">Aktuell sieht das Wetter in deiner Wunschstadt so aus: </h2>
+    <div>
+        <p th:text="'Stadtname: ' + ${weatherResponse.name}"></p>
+        <p th:text="'Land: ' + ${weatherResponse.sys.country}"></p>
+        <p th:text="'Temperatur in °C: ' + ${weatherResponse.main.temp}"></p>
+        <p th:text="'gefühlte Temperatur in °C: ' + ${weatherResponse.main.feels_like}"></p>
+    </div>
+    <div>
+        <table class="table table-striped table-hover">
+            <caption>Wetterdetails</caption>
+            <thead>
+            <tr>
+                <th scope="col">Main</th>
+                <th scope="col">Description</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="weatherEntity : ${weatherResponse.getWeather()}">
+                <td><span th:text="${weatherEntity.main}">Main: </span></td>
+                <td><span th:text="${weatherEntity.description}">Description: </span></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<!---->
+<div class="stadtSpeichern">
+    <form action="#" th:action="@{/createcity1}" method="post">
+        <h2 class="ueberschrift2">Geben Sie Ihre Wunschstadt ein: </h2>
+        <div class="row">
+            <div class="col-3">
+                <label for="stadt1">Stadtname: </label>
+            </div>
+            <div class="col-3">
+                <input class="form-control" id="stadt1" type="text" placeholder="Enter your favorite city"
+                       th:value="${weatherResponse.name}" th:name="cityName"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3">
+                <label for="urlaubswunsch1">Urlaubswunsch: </label>
+            </div>
+            <div class="col-3">
+                <input class="form-control" id="urlaubswunsch1" type="text" placeholder="Urlaubswunsch z. B. gerne"
+                       th:name="urlaubsWunsch"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <button id="absendeButton" class="btn-typ-3" type="submit" name="absendeButton">Bestätigen</button>
+            </div>
+            <div class="col-6">
+                <button id="resetButton" class="btn-typ-3" type="reset" name="resetButton">zurücksetzen</button>
+            </div>
+        </div>
+    </form>
+    <div class="row">
+        <div class="col-6">
+            <form action="/getCities">
+                <button type="submit" class="3">Siehe Wunschtädte</button>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,58 +1,54 @@
 <!DOCTYPE html>
-<html th:fragment="layout (template)"  lang="en">
+<html th:fragment="layout (template)" lang="en">
 <head>
     <title>Title</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta id="Viewport" name="Viewport" content="width=device-width, initial-scale=1.0, maximum=scale=1, minimum=scale=1, user-scalable=no, shrink-to-fit=no" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta id="Viewport" name="Viewport"
+          content="width=device-width, initial-scale=1.0, maximum=scale=1, minimum=scale=1, user-scalable=no, shrink-to-fit=no"/>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="shortcut icon" href="../img/favicon.ico.png">
+    <!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
+    <!--    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>-->
+    <link rel="stylesheet" type="text/css" href="../css/styles.css">
 
 </head>
 <body>
-    <header>
-<!--        <nav>-->
-<!--            <p>The Navigation!</p>-->
-<!--        </nav>-->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">Navbar</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Dropdown
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                        </li>
-                    </ul>
-                    <form class="d-flex">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>
-                </div>
+<header>
+    <div id="logo">
+        <img src="../img/logo1.png" alt="Das Logo, Sonne und 3D Kunstwerk mit dem Wort Wetter">
+    </div>
+    <nav class="navbar navbar-light">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/getCities">WetterEasyGemacht</a>
             </div>
-        </nav>
-    </header>
-    <main role="main" class="content-wrapper mt-r">
-        <div class="continer">
-            <!--/*@thymesVar id="template" type="templates"*/-->
-            <section th:include="${template}"></section>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Startseite</a></li>
+                <li><a href="/getCities">Meine Wunschstädte</a></li>
+                <li><a href="/createCityForm">Wunschstadt hinzufügen</a></li>
+                <form class="navbar-form navbar-left" th:action="@{/fetchWeatherData}" method="post">
+                    <div class="form-group">
+                        <input class="form-control" type="text" placeholder="Enter your favorite city"
+                               th:name="cityName"/>
+                    </div>
+                    <button type="submit" class="btn btn-default">
+                        <i class="glyphicon glyphicon-search"></i>
+                    </button>
+                </form>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            </ul>
         </div>
-    </main>
+    </nav>
+</header>
+<main role="main" class="content-wrapper mt-r">
+    <div class="continer">
+        <!--/*@thymesVar id="template" type="templates"*/-->
+        <section th:include="${template}"></section>
+    </div>
+</main>
 </body>
 </html>

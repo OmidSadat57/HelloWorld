@@ -82,14 +82,17 @@ body {
     height: auto;
     display: flex;
     justify-content: center;
-    margin: 0;
-    padding: 0;
+    margin: 1rem;
+    padding: .5rem;
     position: relative;
 }
 
 .btn-typ-100 {
+    width: auto;
+    height: 30px;
     margin: 0;
-    padding: 0;
+    padding: .5rem;
+
 }
 .btn-typ-100:hover {
     background-color: azure;
@@ -101,8 +104,7 @@ body {
 .stadtSpeichern {
     width: 500px;
     height: auto;
-    margin-right: auto;
-    margin-left: auto;
+    margin: auto;
     border: solid 1px blue;
     background-color: white;
 }
@@ -127,6 +129,10 @@ body {
     min-height: 1px;
 }
 
+.col-3 {
+    justify-content: center;
+}
+
 .col-6 {
     width: 100%;
     display: flex;
@@ -147,10 +153,9 @@ body {
 
 .stadtgespeichert {
     width: 400px;
-    height: 200px;
+    height: auto;
     border: solid 1px blue;
-    margin-left: auto;
-    margin-right: auto;
+    margin: auto;
     position: relative;
     padding: 1rem;
     background-color: white;

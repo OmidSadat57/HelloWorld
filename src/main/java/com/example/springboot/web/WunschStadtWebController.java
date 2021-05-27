@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -23,12 +24,13 @@ public class WunschStadtWebController {
         model.addAttribute("wunschStadtEntities", wunschStadtEntities);
         return "wunschstadttabelle";
     }
-//    @GetMapping(path = Endpoints.GETCITIES)
-//    public ModelAndView getAllCities() {
-//        List<WunschStadtEntity> wunschStadtEntities = wunschStadtService.findAllCities();
-//        model.addAttribute("wunschStadtEntities", wunschStadtEntities);
-//        return new ModelAndView(ViewNames.TEST);
-//    }
+
+    @GetMapping("/getCities1")
+    public String getAllCities1(Model model) {
+        List<WunschStadtEntity> wunschStadtEntities = wunschStadtService.findAllCities();
+        model.addAttribute("wunschStadtEntities", wunschStadtEntities);
+        return "test";
+    }
 
     @PostMapping("/createcity")
     public String createCity(@ModelAttribute WunschStadtEntity wunschStadtEntity, Model model) {
@@ -37,18 +39,30 @@ public class WunschStadtWebController {
         return "gespeichertestadt";
     }
 
+    @PostMapping("/createcity1")
+    public String createCity1(@RequestParam(value = "cityName") String cityName,
+                              @RequestParam(value = "urlaubsWunsch") String urlaubsWunsch,
+                              Model model) {
+        WunschStadtEntity wunschStadtEntity = new WunschStadtEntity();
+        wunschStadtEntity.setStadtName(cityName);
+        wunschStadtEntity.setUrlaubsWunsch(urlaubsWunsch);
+        wunschStadtService.save(wunschStadtEntity);
+        model.addAttribute("wunschStadtEntity", wunschStadtEntity);
+        return "gespeichertestadt";
+    }
+
     @GetMapping("/createCityForm")
-    public String createCity(Model model) {
+    public String createCityForm(Model model) {
         model.addAttribute("wunschStadtEntity", new WunschStadtEntity());
         return "stadtspeichern";
     }
-//
-//    @GetMapping("/cities/count")
-//    public String count() {
-//
-//        long anzahlDatensetze = wunschStadtService.count();
-//        String anzahlDatensetzeString = String.valueOf(anzahlDatensetze);
-//        String nachrichtImBrowser = "Anzhl der verfügbaren Datensätze in der Datenbank: [ " + anzahlDatensetzeString + " ]";
-//        return nachrichtImBrowser;
-//    }
+
+    @GetMapping("/createCityForm1")
+    public String createCityForm1(@RequestParam(value = "cityName") String cityName, Model model) {
+        WunschStadtEntity wunschStadtEntity = new WunschStadtEntity();
+        wunschStadtEntity.setStadtName(cityName);
+        model.addAttribute("wunschStadtEntity", wunschStadtEntity);
+        return "stadtspeichern";
+    }
+
 }
