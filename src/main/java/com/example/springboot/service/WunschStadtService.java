@@ -14,12 +14,14 @@ public class WunschStadtService {
     @Autowired
     private WunschStadtRepository wunschStadtRepository;
 
-    public List<WunschStadtEntity> findAllCities() {
+    public List<WunschStadtEntity> findAllCities(String user) {
         var iterator = wunschStadtRepository.findAll();
         var wunschStaedte = new ArrayList<WunschStadtEntity>();
 //        iterator.forEach(wunschStaedte::add);
         for(WunschStadtEntity entity : iterator) {
-            wunschStaedte.add(entity);
+            if(entity.getOwner()!=null && entity.getOwner().equals(user)) {
+                wunschStaedte.add(entity);
+            }
         }
         return wunschStaedte;
     }

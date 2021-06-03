@@ -18,12 +18,21 @@ public class WunschStadtEntity {
     @Column(name = "ulaubswunsch")
     private String urlaubsWunsch;
 
+    @Column(name = "owner")
+    private String owner;
+
+    public WunschStadtEntity() { }
+
     public WunschStadtEntity(String stadtName, String urlaubsWunsch) {
         this.stadtName = stadtName;
         this.urlaubsWunsch = urlaubsWunsch;
     }
 
-    public WunschStadtEntity() { }
+    public WunschStadtEntity(String stadtName, String urlaubsWunsch, String owner) {
+        this.stadtName = stadtName;
+        this.urlaubsWunsch = urlaubsWunsch;
+        this.owner = owner;
+    }
 
     public Long getStadtId() {
         return stadtId;
@@ -49,12 +58,12 @@ public class WunschStadtEntity {
         this.urlaubsWunsch = urlaubsWunsch;
     }
 
-    @Override
-    public String toString() {
-        return "WunschStadtEntity{" +
-                "stadtId=" + stadtId +
-                ", stadtName='" + stadtName + '\'' +
-                ", urlaubsWunsch='" + urlaubsWunsch + '\'' +
-                '}';
+    public String getOwner() {
+        return owner;
     }
+
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
 }

@@ -3,6 +3,8 @@ package com.example.springboot.web;
 import com.example.springboot.persistence.WunschStadtEntity;
 import com.example.springboot.service.WunschStadtService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.oauth2.core.oidc.user.OidcUser;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,22 +20,33 @@ public class WunschStadtWebController {
     @Autowired
     private WunschStadtService wunschStadtService;
 
+    @GetMapping("/")
+    public String logIn(Model model) {
+//        String email = user.getEmail();
+//        List<WunschStadtEntity> wunschStadtEntities = wunschStadtService.findAllCities(email);
+//        model.addAttribute("wunschStadtEntities", wunschStadtEntities);
+        return "test";
+    }
+
     @GetMapping("/getCities")
-    public String getAllCities(Model model) {
-        List<WunschStadtEntity> wunschStadtEntities = wunschStadtService.findAllCities();
+    public String getAllCities(@AuthenticationPrincipal OidcUser user, Model model) {
+        List<WunschStadtEntity> wunschStadtEntities = wunschStadtService.findAllCities(user.getEmail());
         model.addAttribute("wunschStadtEntities", wunschStadtEntities);
         return "wunschstadttabelle";
     }
 
     @GetMapping("/getCities1")
-    public String getAllCities1(Model model) {
-        List<WunschStadtEntity> wunschStadtEntities = wunschStadtService.findAllCities();
+    public String getAllCities1(@AuthenticationPrincipal OidcUser user, Model model) {
+//        String email = user.getEmail();
+        List<WunschStadtEntity> wunschStadtEntities = wunschStadtService.findAllCities(user.getEmail());
         model.addAttribute("wunschStadtEntities", wunschStadtEntities);
         return "test";
     }
 
     @PostMapping("/createcity")
-    public String createCity(@ModelAttribute WunschStadtEntity wunschStadtEntity, Model model) {
+    public String createCity(@ModelAttribute WunschStadtEntity wunschStadtEntity,
+                             @AuthenticationPrincipal OidcUser user, Model model) {
+        wunschStadtEntity.setOwner(user.getEmail());
         wunschStadtService.save(wunschStadtEntity);
         model.addAttribute("wunschStadtEntity", wunschStadtEntity);
         return "gespeichertestadt";
@@ -42,8 +55,10 @@ public class WunschStadtWebController {
     @PostMapping("/createcity1")
     public String createCity1(@RequestParam(value = "cityName") String cityName,
                               @RequestParam(value = "urlaubsWunsch") String urlaubsWunsch,
+                              @AuthenticationPrincipal OidcUser user,
                               Model model) {
         WunschStadtEntity wunschStadtEntity = new WunschStadtEntity();
+        wunschStadtEntity.setOwner(user.getEmail());
         wunschStadtEntity.setStadtName(cityName);
         wunschStadtEntity.setUrlaubsWunsch(urlaubsWunsch);
         wunschStadtService.save(wunschStadtEntity);

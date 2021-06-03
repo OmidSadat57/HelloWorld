@@ -5,8 +5,8 @@ html {
 }
 
 body {
-    /*background-color: white;*/
-    background-image: url('../img/background - kopie1.png');
+    background-color: white;
+    /*background-image: url('../img/background - kopie1.png');*/
     /*background-color: #F0FFFF;*/
     padding: 0 2rem 2rem;
 }
@@ -20,10 +20,19 @@ body {
     text-align: center;
     font-weight: bolder;
     font-size: 1rem;
+    padding: 1rem;
+    margin: 0;
 }
 
 .table {
     background-color: azure;
+    border: solid 1px blue;
+    border-radius: 25px;
+    height: auto;
+    width: 50%;
+    margin-right: auto;
+    margin-left: auto;
+    justify-content: center;
 }
 /* === Generelles === */
 
@@ -44,19 +53,44 @@ body {
     background-color: #ffe373;
 }
 
+.login-form {
+    margin-top: 1rem;
+}
+.logout-form {
+    background-color: transparent;
+    margin-top: .5rem;
+}
+/*.logout-form, .login-form {*/
+/*    position: relative;*/
+/*}*/
+
 /* === Startseite und meine Wunschstädte === */
 
 @keyframes logoAnimation {
+    /*30% { transform: rotateY(-60deg) }*/
     0% { transform: rotateY(0deg) }
     5% { transform: rotateY(10deg) }
-    10% { transform: rotateY(20deg) }
-    15% { transform: rotateY(30deg) }
-    20% { transform: rotateY(40deg) }
-    25% { transform: rotateY(50deg) }
+    10% { transform: rotateY(15deg) }
+    15% { transform: rotateY(20deg) }
+    25% { transform: rotateY(25deg) }
+    30% { transform: rotateY(30deg) }
+    35% { transform: rotateY(35deg) }
 }
 
-#logo > img {
-    animation: logoAnimation 5s ease-in-out infinite alternate;
+.logo {
+    height: auto;
+    width: 80px;
+    min-height: 1px;
+    margin: .5rem auto 0 5rem;
+    padding: 0;
+}
+
+.logo > img {
+    animation: logoAnimation 4s ease-in-out infinite alternate;
+    width: 100%;
+    height: 55px;
+    margin: 0;
+    padding: 0;
 }
 
 .btn-typ-4 {
@@ -76,36 +110,16 @@ body {
     padding: 0;
 }
 
-.col-100 {
-
-    width: auto;
-    height: auto;
-    display: flex;
-    justify-content: center;
-    margin: 1rem;
-    padding: .5rem;
-    position: relative;
-}
-
-.btn-typ-100 {
-    width: auto;
-    height: 30px;
-    margin: 0;
-    padding: .5rem;
-
-}
-.btn-typ-100:hover {
-    background-color: azure;
-    border: solid 1px blue;
-}
-
 /* === stadtSpeichern- Seite === */
 
 .stadtSpeichern {
     width: 500px;
     height: auto;
-    margin: auto;
+    margin-right:auto;
+    margin-left: auto;
+    margin-top: .5rem;
     border: solid 1px blue;
+    border-radius: 25px;
     background-color: white;
 }
 
@@ -143,20 +157,43 @@ body {
     width: 120px;
 }
 
-#logo {
-    margin-top: 2rem;
-    margin-left: 4rem;
-    margin-bottom: .1rem;
-}
-
 /* === stadtgespeichert === */
 
 .stadtgespeichert {
     width: 400px;
     height: auto;
     border: solid 1px blue;
-    margin: auto;
+    border-radius: 25px;
+    margin-top: .5rem;
+    margin-right:auto;
+    margin-left: auto;
     position: relative;
-    padding: 1rem;
+    padding: .4rem;
     background-color: white;
+}
+
+.col-100 {
+
+    width: auto;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: .5rem;
+    position: relative;
+}
+
+.btn-typ-100 {
+    width: auto;
+    height: 30px;
+    margin: 0;
+    padding: .5rem;
+    display: flex;
+    justify-content: center;
+    border: solid 1px darkgray;
+
+}
+.btn-typ-100:hover {
+    background-color: azure;
+    border: solid 1px blue;
 }
