@@ -43,6 +43,14 @@ public class WunschStadtWebController {
         return "test";
     }
 
+    @GetMapping("/getCities2")
+    public String getAllCities2(@AuthenticationPrincipal OidcUser user, Model model) {
+//        String email = user.getEmail();
+//        List<WunschStadtEntity> wunschStadtEntities = wunschStadtService.findAllCities(user.getEmail());
+//        model.addAttribute("wunschStadtEntities", wunschStadtEntities);
+        return "stadtspeicherndynamisch";
+    }
+
     @PostMapping("/createcity")
     public String createCity(@ModelAttribute WunschStadtEntity wunschStadtEntity,
                              @AuthenticationPrincipal OidcUser user, Model model) {

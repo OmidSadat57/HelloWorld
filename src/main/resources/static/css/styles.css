@@ -6,8 +6,6 @@ html {
 
 body {
     background-color: white;
-    /*background-image: url('../img/background - kopie1.png');*/
-    /*background-color: #F0FFFF;*/
     padding: 0 2rem 2rem;
 }
 
@@ -60,11 +58,8 @@ body {
     background-color: transparent;
     margin-top: .5rem;
 }
-/*.logout-form, .login-form {*/
-/*    position: relative;*/
-/*}*/
 
-/* === Startseite und meine Wunschstädte === */
+/* === Startseite & meine Wunschstädte === */
 
 @keyframes logoAnimation {
     /*30% { transform: rotateY(-60deg) }*/
@@ -103,11 +98,13 @@ body {
     height: 40px;
 }
 #untersterBereichWunschStaedte {
-    width: 100%;
+    width: 50%;
     height: 60px;
-    position: relative;
-    margin: 0;
-    padding: 0;
+    /*position: relative;*/
+    margin-top: 0.5rem;
+    margin-right: auto;
+    margin-left: auto;
+    padding: .5rem;
 }
 
 /* === stadtSpeichern- Seite === */
@@ -173,7 +170,6 @@ body {
 }
 
 .col-100 {
-
     width: auto;
     height: auto;
     display: flex;

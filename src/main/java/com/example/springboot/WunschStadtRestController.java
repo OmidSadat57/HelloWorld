@@ -1,25 +1,36 @@
 package com.example.springboot;
 
-//@RestController
+import com.example.springboot.persistence.WunschStadtEntity;
+import com.example.springboot.service.WunschStadtService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.oauth2.core.oidc.user.OidcUser;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
 public class WunschStadtRestController {
 
-//    @Autowired
-//    private WunschStadtService wunschStadtService;
+    @Autowired
+    private WunschStadtService wunschStadtService;
 //
 //    @RequestMapping("/")
 //    public List<WunschStadtEntity> showAllCities() {
 //        return wunschStadtService.findAllCities();
 //    }
 //
-//    @RequestMapping("/getCities")
-//    public List<WunschStadtEntity> getAllCities() {
-//        return wunschStadtService.findAllCities();
-//    }
+    @GetMapping("/getCitiesJson")
+    public List<WunschStadtEntity> getAllCities(@AuthenticationPrincipal OidcUser user) {
+        return wunschStadtService.findAllCities(user.getEmail());
+    }
 //
-//    @PostMapping("/createCity")
-//    public WunschStadtEntity createCity(@RequestBody WunschStadtEntity wunschStadt) {
-//        return wunschStadtService.save(wunschStadt);
-//    }
+    @PostMapping("/saveCityJson")
+    public WunschStadtEntity createCity(@AuthenticationPrincipal OidcUser user,
+                                        @RequestBody WunschStadtEntity wunschStadt) {
+        wunschStadt.setOwner(user.getEmail());
+        return wunschStadtService.save(wunschStadt);
+    }
 //
 //    @GetMapping("/cities/count")
 //    public String count() {
