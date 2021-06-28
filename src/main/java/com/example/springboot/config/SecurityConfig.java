@@ -12,7 +12,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        String home = "test";
+        String home = "welcomepage";
         String home1 = "/";
         http.authorizeRequests()
                 //

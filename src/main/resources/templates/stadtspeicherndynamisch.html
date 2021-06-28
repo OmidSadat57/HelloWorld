@@ -1,46 +1,12 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <title>Save Cities!</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <script src="https://unpkg.com/vue@next" defer></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    <script src="#" th:src="@{/js/dynamic-form.js}" defer></script>
-</head>
+<html th:replace="~{layout :: layout (~{::body})}" lang="en">
 <body>
     <h2>Save your favorite city dynamically with Vue!</h2>
     <div id="dynamic-form">
         <dynamic-form></dynamic-form>
     </div>
-<!--    <div class="stadtSpeichern">-->
-<!--        <form action="#" th:action="@{/createcity}" th:object="${wunschStadtEntity}" method="post">-->
-<!--            <h2 class="ueberschrift2">Geben Sie Ihre Wunschstadt ein: </h2>-->
-<!--            <div class="row">-->
-<!--                <div class="col-3">-->
-<!--                    <label for="stadt1">Stadtname: </label>-->
-<!--                </div>-->
-<!--                <div class="col-3">-->
-<!--                    <input id="stadt1" type="text" name="stadtname" th:field="*{stadtName}" placeholder="z.B. Berlin">-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            <div class="row">-->
-<!--                <div class="col-3">-->
-<!--                    <label for="urlaubswunsch1">Urlaubswunsch: </label>-->
-<!--                </div>-->
-<!--                <div class="col-3">-->
-<!--                    <input id="urlaubswunsch1" type="text" name="urlaubswunsch1" th:field="*{urlaubsWunsch}" placeholder="z.B. gerne">-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            <div class="row">-->
-<!--                <div class="col-6">-->
-<!--                    <button id="absendeButton" class="btn-typ-3" type="submit" name="absendeButton">Bestätigen</button>-->
-<!--                </div>-->
-<!--                <div class="col-6">-->
-<!--                    <button id="resetButton" class="btn-typ-3" type="reset" name="resetButton">zurücksetzen</button>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </form>-->
-<!--    </div>-->
+    <div id="zu-menueleiste">
+        <a href="#oberster-bereich">zur Menüleiste</a>
+    </div>
 </body>
 </html>

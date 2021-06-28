@@ -10,67 +10,58 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="shortcut icon" href="../img/favicon.ico.png">
     <link rel="stylesheet" type="text/css" href="../css/styles.css">
+    <script src="https://unpkg.com/vue@next" defer></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="#" th:src="@{/js/dynamic-form.js}" defer></script>
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <img th:src="@{/img/logo1.png}" alt="Das Logo, Sonne und 3D Kunstwerk mit dem Wort Wetter">
-        </div>
-        <nav class="navbar navbar-light">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="/getCities">WetterEasyGemacht</a>
-                </div>
-                <ul class="nav navbar-nav">
-                    <li><a href="#">Startseite</a></li>
-                    <li><a href="/getCities">Meine Wunschstädte</a></li>
-                    <li><a href="/createCityForm">Wunschstadt hinzufügen</a></li>
-                    <li>
-                        <form class="navbar-form navbar-left" action="#" th:action="@{/fetchWeatherData}" method="post">
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Enter your favorite city" th:name="cityName"/>
-                                <div class="input-group-btn">
-                                    <button class="btn btn-default" type="submit">
-                                        <i class="glyphicon glyphicon-search"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
-                    </li>
-<!--                    <div sec:authorize="!isAuthenticated()">-->
-<!--                        <a th:href="@{/oauth2/authorization/okta}"><span class="glyphicon glyphicon-user"></span> Sign Up</a>-->
-<!--                    </div>-->
-<!--                    <div sec:authorize="!isAuthenticated()">-->
-<!--                        <a th:href="@{/oauth2/authorization/okta}"><span class="glyphicon glyphicon-log-in"></span> Login</a>-->
-<!--                    </div>-->
-<!--                    <div sec:authorize="!isAuthenticated()">-->
-<!--                        <form th:method="POST" action="#" th:action="@{/logout}">-->
-<!--                            <a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a>-->
-<!--                            &lt;!&ndash; <button class="glyphicon glyphicon-log-out" type="submit">Logout</button>&ndash;&gt;-->
-<!--                        </form>-->
-<!--                    </div>-->
-                    <ul class="nav navbar-nav navbar-right">
-<!--                        <li><a th:href="@{/oauth2/authorization/okta}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>-->
-<!--                        <li><a th:href="@{/oauth2/authorization/okta}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>-->
-                        <li>
-                            <div sec:authorize="!isAuthenticated()" class="login-form">
-                                <a th:href="@{/oauth2/authorization/okta}"><span class="glyphicon glyphicon-log-in"></span> Login</a>
-<!--                                <button class="glyphicon glyphicon-log-out login-form" type="submit"> Logout</button>-->
-                            </div>
-                        </li>
-                        <li>
-                            <div sec:authorize="isAuthenticated()" class="logout-form">
-                                <form th:method="POST" action="#" th:action="@{/logout}">
-<!--                                    <a th:href="@{/logout}"><span class="glyphicon glyphicon-log-out"></span> Logout</a>-->
-                                     <button class="glyphicon glyphicon-log-out logout-form" type="submit"> Logout</button>
-                                </form>
-                            </div>
-                        </li>
-                    </ul>
-                </ul>
+    <div class="header-bereich" id="oberster-bereich">
+        <header>
+            <div class="logo">
+                <img th:src="@{/img/logo7.png}" alt="Das Logo, Sonne und 3D Kunstwerk mit dem Wort Wetter">
             </div>
-        </nav>
-    </header>
+            <nav class="navbar navbar-light">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="/">WetterEasyGemacht</a>
+                    </div>
+                    <ul class="nav navbar-nav">
+                        <li><a href="/">Startseite</a></li>
+                        <li><a href="/getCities2">Meine Wunschstädte</a></li>
+                        <li><a href="/createCityForm">Wunschstadt hinzufügen</a></li>
+                        <li>
+                            <form class="navbar-form navbar-left" action="#" th:action="@{/fetchWeatherData}" method="post">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Enter your favorite city" th:name="cityName"/>
+                                    <div class="input-group-btn">
+                                        <button class="btn btn-default" type="submit">
+                                            <i class="glyphicon glyphicon-search"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </li>
+                            <li>
+                                <div sec:authorize="!isAuthenticated()">
+                                    <form th:method="POST" action="#" th:action="@{/oauth2/authorization/okta}">
+                                        <button class="login-form" type="submit"> Login</button>
+                                    </form>
+                                </div>
+                            </li>
+                            <li>
+                                <div sec:authorize="isAuthenticated()">
+                                    <form th:method="POST" action="#" th:action="@{/logout}">
+                                        <button class="logout-form" type="submit"> Logout</button>
+                                    </form>
+                                </div>
+                            </li>
+                    </ul>
+                </div>
+            </nav>
+            <div id="leerer-bereich"></div>
+        </header>
+    </div>
     <main role="main" class="content-wrapper mt-r">
         <div class="continer">
             <!--/*@thymesVar id="template" type="templates"*/-->

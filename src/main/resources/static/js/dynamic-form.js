@@ -1,14 +1,16 @@
 const app = Vue.createApp({});
 app.component('dynamic-form', {
     template: `
-    <div>
-        <input v-model="cityNameField" placeholder="Stadtname" ref="nameInput">
-        <input v-model="holidayWishField" placeholder="Urlaubswunsch z. B. gerne" @keyup.enter="save()">
-        <button type="button" @click="save()">Save</button>
+    <div id="vue-input">
+        <div class="row">
+            <input v-model="cityNameField" class="col-3" placeholder="Stadtname" ref="nameInput">
+            <input v-model="holidayWishField" class="col-3" placeholder="Urlaubswunsch z. B. gerne" @keyup.enter="save()">
+            <button type="button" class="col-3" id="save-btn" @click="save()">Save</button>
+        </div>
     </div>
-    <div>
-        <h3>Here are all of your Dream Cities</h3>
-        <table>
+    <div id="vue-table-fields">
+        <table class="table table-striped table-hover">
+        <caption>Here are all of your Dream Cities</caption>
             <thead>
                 <tr>
                     <th>Stadtname</th>

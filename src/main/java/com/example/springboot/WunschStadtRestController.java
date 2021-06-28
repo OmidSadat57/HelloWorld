@@ -14,24 +14,19 @@ public class WunschStadtRestController {
 
     @Autowired
     private WunschStadtService wunschStadtService;
-//
-//    @RequestMapping("/")
-//    public List<WunschStadtEntity> showAllCities() {
-//        return wunschStadtService.findAllCities();
-//    }
-//
+
     @GetMapping("/getCitiesJson")
     public List<WunschStadtEntity> getAllCities(@AuthenticationPrincipal OidcUser user) {
         return wunschStadtService.findAllCities(user.getEmail());
     }
-//
+
     @PostMapping("/saveCityJson")
     public WunschStadtEntity createCity(@AuthenticationPrincipal OidcUser user,
                                         @RequestBody WunschStadtEntity wunschStadt) {
         wunschStadt.setOwner(user.getEmail());
         return wunschStadtService.save(wunschStadt);
     }
-//
+
 //    @GetMapping("/cities/count")
 //    public String count() {
 //

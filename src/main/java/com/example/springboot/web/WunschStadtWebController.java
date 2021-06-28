@@ -21,33 +21,19 @@ public class WunschStadtWebController {
     private WunschStadtService wunschStadtService;
 
     @GetMapping("/")
-    public String logIn(Model model) {
-//        String email = user.getEmail();
-//        List<WunschStadtEntity> wunschStadtEntities = wunschStadtService.findAllCities(email);
-//        model.addAttribute("wunschStadtEntities", wunschStadtEntities);
-        return "test";
-    }
-
-    @GetMapping("/getCities")
-    public String getAllCities(@AuthenticationPrincipal OidcUser user, Model model) {
-        List<WunschStadtEntity> wunschStadtEntities = wunschStadtService.findAllCities(user.getEmail());
-        model.addAttribute("wunschStadtEntities", wunschStadtEntities);
-        return "wunschstadttabelle";
+    public String sayWelcome() {
+        return "welcomepage";
     }
 
     @GetMapping("/getCities1")
     public String getAllCities1(@AuthenticationPrincipal OidcUser user, Model model) {
-//        String email = user.getEmail();
         List<WunschStadtEntity> wunschStadtEntities = wunschStadtService.findAllCities(user.getEmail());
         model.addAttribute("wunschStadtEntities", wunschStadtEntities);
-        return "test";
+        return "welcomepage";
     }
 
     @GetMapping("/getCities2")
     public String getAllCities2(@AuthenticationPrincipal OidcUser user, Model model) {
-//        String email = user.getEmail();
-//        List<WunschStadtEntity> wunschStadtEntities = wunschStadtService.findAllCities(user.getEmail());
-//        model.addAttribute("wunschStadtEntities", wunschStadtEntities);
         return "stadtspeicherndynamisch";
     }
 
